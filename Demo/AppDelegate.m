@@ -20,6 +20,8 @@
     // Override point for customization after application launch.
     
     //fsdafas
+    //修复了手表没盖
+    
 //1.test
     // 2.dev
     [TBCityIconFont setFontName:@"iconfont"];
