@@ -28,12 +28,10 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-<<<<<<< HEAD
+
     //1.1 版本修复问题
     // release bug
-=======
     //fasfa
->>>>>>> feature/homePage
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     
     self.tableView.delegate = self;

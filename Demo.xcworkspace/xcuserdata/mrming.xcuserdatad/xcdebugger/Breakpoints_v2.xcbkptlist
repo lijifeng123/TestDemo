@@ -14,9 +14,9 @@
             filePath = "Demo/ViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "-tableView:numberOfRowsInSection:"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-testAction"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -30,9 +30,9 @@
             filePath = "Demo/ViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "-tableView:numberOfRowsInSection:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
