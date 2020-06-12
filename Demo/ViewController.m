@@ -28,7 +28,7 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    
+    //1.1 版本修复问题
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     
     self.tableView.delegate = self;
