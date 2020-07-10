@@ -5,6 +5,10 @@
 source 'https://github.com/PanZhow/IMXPodsRepo'
 source 'https://github.com/samvermette/SVPullToRefresh'
 
+source 'https://cdn.cocoapods.org/'
+source 'https://gitlab.91xinshang.com/ios/xspodrepo.git'
+source 'https://github.com/aliyun/aliyun-specs.git'
+
 target 'Demo' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
@@ -22,6 +26,7 @@ target 'Demo' do
   end
     pod 'MJRefresh'
     pod 'Masonry', '1.0.2'
+    pod 'lottie-ios', '2.5.3'
  
   #pod 'SVPullToRefresh'
 

@@ -7,8 +7,8 @@
 //
 
 #import "UIScrollView+XSRefresh.h"
-#import <MJRefresh.h>
 #import "XSMJDIYHeader.h"
+#import "XSMJDIYFooter.h"
 
 @interface UIScrollView ()
 
@@ -27,6 +27,7 @@ static NSString *loadMoreKey = @"loadMoreKey";
 - (void)pullRefresh:(XSListRefreshBlock)block
 {
     self.pullRefreshBlock = block;
+
     if(block)
     {
         if(self.mj_header)
@@ -41,15 +42,17 @@ static NSString *loadMoreKey = @"loadMoreKey";
                     [strongself endPullRefresh];
                 }else{
                     [strongself resetNoMoreData];
-                    strongself.pullRefreshBlock();
+                    if (strongself.pullRefreshBlock) {
+                        strongself.pullRefreshBlock();
+                    }
                 }
             }else{
                 [strongself resetNoMoreData];
-                strongself.pullRefreshBlock();
+                if (strongself.pullRefreshBlock) {
+                    strongself.pullRefreshBlock();
+                }
             }
         }];
-//        MJRefreshStateHeader *header = (MJRefreshStateHeader *)self.mj_header;
-//        header.lastUpdatedTimeLabel.hidden = YES;
         self.mj_header.ignoredScrollViewContentInsetTop = 0;
     }
     else
@@ -70,21 +73,24 @@ static NSString *loadMoreKey = @"loadMoreKey";
         }
         __weak __typeof(self) weakSelf = self;
         
-        self.mj_footer = [MJRefreshAutoStateFooter footerWithRefreshingBlock:^{
+        self.mj_footer = [XSMJDIYFooter footerWithRefreshingBlock:^{
             __strong typeof(weakSelf)strongSelf = weakSelf;
             if(strongSelf.permitOnlyOneRefresh){
                 if(self.mj_header && self.mj_header.refreshing){
                     [strongSelf endPullLoadmore];
                 }else{
-                    strongSelf.loadMoreBlock();
+                    if (strongSelf.loadMoreBlock) {
+                        strongSelf.loadMoreBlock();
+                    }
                 }
             }else{
-                strongSelf.loadMoreBlock();
+                if (strongSelf.loadMoreBlock) {
+                    strongSelf.loadMoreBlock();
+                }
             }
         }];
-        MJRefreshAutoStateFooter *autoFooter = (MJRefreshAutoStateFooter *)self.mj_footer;
-        [autoFooter setTitle:@"已经到底了~" forState:MJRefreshStateNoMoreData];
-        autoFooter.triggerAutomaticallyRefreshPercent = -1.0;
+        XSMJDIYFooter *autoFooter = (XSMJDIYFooter *)self.mj_footer;
+        autoFooter.triggerAutomaticallyRefreshPercent = 1.0;
     }
     else
     {
@@ -105,18 +111,24 @@ static NSString *loadMoreKey = @"loadMoreKey";
 }
 - (void)noticeNoMoreData
 {
+    [self noticeNoMoreData:@"没有更多了"];
+}
+
+- (void)noticeNoMoreData:(NSString *)noDataTip{
     if(self.loadMoreBlock)
     {
+        XSMJDIYFooter *footer = (XSMJDIYFooter *)self.mj_footer;
+        footer.hidden = noDataTip.length > 0 ? NO : YES;
+        [footer setTitle:noDataTip forState:MJRefreshStateNoMoreData];
         [self.mj_footer endRefreshingWithNoMoreData];
     }
 }
+
 - (void)resetNoMoreData
 {
     [self.mj_footer resetNoMoreData];
 }
-- (void)autoNoMoreDataTips:(BOOL)isHide{
-    self.mj_footer.hidden = isHide;
-}
+
 - (void)endPullAllRefresh
 {
     if(self.pullRefreshBlock)
@@ -128,9 +140,10 @@ static NSString *loadMoreKey = @"loadMoreKey";
         [self endPullLoadmore];
     }
 }
-- (void)resetFooterIdle
+- (void)resetFooterWithContent:(NSString *)content state:(MJRefreshState)state
 {
-    //[self.mj_footer setTitle:@"奋力加载中..." forState:MJRefreshStateIdle];
+    XSMJDIYFooter *footer = (XSMJDIYFooter *)self.mj_footer;
+    [footer setTitle:content forState:state];
 }
 - (void)refreshStatusWhenNextPageHasError:(NSError *)error
 {
@@ -143,6 +156,11 @@ static NSString *loadMoreKey = @"loadMoreKey";
 }
 
 
+- (void)configXSTriggerAutomaticallyRefreshPercentkey:(CGFloat)percent{
+    XSMJDIYFooter *autoFooter = (XSMJDIYFooter *)self.mj_footer;
+    [autoFooter setTriggerAutomaticallyRefreshPercent:percent];
+}
+
 #pragma mark ======  getter & setter  ======
 - (BOOL)permitOnlyOneRefresh{
     NSNumber *refresh = objc_getAssociatedObject(self, &permitOnlyOneRefreshKey);
@@ -153,15 +171,12 @@ static NSString *loadMoreKey = @"loadMoreKey";
     objc_setAssociatedObject(self, &permitOnlyOneRefreshKey, @(permitOnlyOneRefresh), OBJC_ASSOCIATION_ASSIGN);
 }
 
-- (BOOL)openRefresh{
-    NSNumber *openRefresh = objc_getAssociatedObject(self, &openRefresh);
-    return [openRefresh boolValue];
+- (void)openPullRefresh:(BOOL)hideHeader{
+    self.mj_header.hidden = !hideHeader;
 }
 
-- (void)setOpenRefresh:(BOOL)openRefresh{
-    self.mj_header.hidden = !openRefresh;
-    self.mj_footer.hidden = !openRefresh;
-    objc_setAssociatedObject(self, &permitOnlyOneRefreshKey, @(openRefresh), OBJC_ASSOCIATION_ASSIGN);
+- (void)openLoadMoreRefresh:(BOOL)hideFooter{
+    self.mj_footer.hidden = !hideFooter;
 }
 
 - (XSListRefreshBlock)loadMoreBlock{

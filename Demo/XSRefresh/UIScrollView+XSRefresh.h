@@ -7,22 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MJRefresh.h>
 
 typedef void(^XSListRefreshBlock)(void);
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UIScrollView (XSRefresh)
-
-/**
- * 是否开启上下拉刷新
- */
-@property (nonatomic,assign)BOOL openRefresh;
-
-/**
- 只允许上拉、下拉之一执行
- */
-@property (nonatomic,assign)BOOL permitOnlyOneRefresh;
-
 
 /**
  启动下拉刷新
@@ -51,26 +41,33 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)endPullLoadmore;
 /**
- 上拉刷新：无更多数据
+ 上拉刷新：无更多数据 默认无底部展示信息，noDataTip：有值展示底部信息
  */
 - (void)noticeNoMoreData;
+- (void)noticeNoMoreData:(NSString *)noDataTip;
 /**
  上拉刷新：重置
  */
 - (void)resetNoMoreData;
-
-/**
- 是否自动隐藏底部无数据提示
-
- @param isHide 布尔值
- */
-- (void)autoNoMoreDataTips:(BOOL)isHide;
 /**
  结束下拉&&上拉刷新
  */
 - (void)endPullAllRefresh;
-- (void)resetFooterIdle;
+- (void)resetFooterWithContent:(NSString *)content state:(MJRefreshState)state;
 - (void)refreshStatusWhenNextPageHasError:(NSError *)error;
+/**
+* 是否开启上下拉刷新 隐藏header footer 以及内容
+*/
+
+- (void)openPullRefresh:(BOOL)hideHeader DEPRECATED_MSG_ATTRIBUTE("为了兼容旧版本刷新，使用新版本方法无需调用");
+- (void)openLoadMoreRefresh:(BOOL)hideFooter DEPRECATED_MSG_ATTRIBUTE("为了兼容旧版本刷新，使用新版本方法无需调用");
+
+/**
+ 只允许上拉、下拉之一执行
+ */
+@property (nonatomic,assign)BOOL permitOnlyOneRefresh;
+
+@property (nonatomic) CGFloat xsTriggerAutomaticallyRefreshPercent;
 
 @end
 

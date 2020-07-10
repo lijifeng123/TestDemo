@@ -14,16 +14,12 @@
 		C650CFF6246AD084002A01C9 /* Icon_Refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = C650CFF5246AD084002A01C9 /* Icon_Refresh.png */; };
 		C650D061246BCF35002A01C9 /* MJDIYHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C650D060246BCF35002A01C9 /* MJDIYHeader.m */; };
 		C650D063246BD4F5002A01C9 /* Icon_Refresh_Arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C650D062246BD4F5002A01C9 /* Icon_Refresh_Arrow@2x.png */; };
-		C650D06A246BFDEC002A01C9 /* XSMJDIYHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C650D066246BFDEC002A01C9 /* XSMJDIYHeader.m */; };
-		C650D06B246BFDEC002A01C9 /* UIScrollView+XSRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = C650D067246BFDEC002A01C9 /* UIScrollView+XSRefresh.m */; };
 		C650D099246EBA40002A01C9 /* TBCityIconFont.m in Sources */ = {isa = PBXBuildFile; fileRef = C650D095246EBA40002A01C9 /* TBCityIconFont.m */; };
 		C650D09A246EBA40002A01C9 /* TBCityIconInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C650D096246EBA40002A01C9 /* TBCityIconInfo.m */; };
 		C650D09D246EBA8E002A01C9 /* UIImage+TBCityIconFont.m in Sources */ = {isa = PBXBuildFile; fileRef = C650D09C246EBA8E002A01C9 /* UIImage+TBCityIconFont.m */; };
 		C650D0A0246EBD19002A01C9 /* iconfont.json in Resources */ = {isa = PBXBuildFile; fileRef = C650D09E246EBD19002A01C9 /* iconfont.json */; };
 		C650D0A1246EBD19002A01C9 /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C650D09F246EBD19002A01C9 /* iconfont.ttf */; };
 		C65AFE5024814F960015E9B3 /* Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = C65AFE4F24814F960015E9B3 /* Location.gpx */; };
-		C65D627924740C3F00DD798A /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = C65D627524740C3F00DD798A /* UIScrollView+SVInfiniteScrolling.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		C65D627A24740C3F00DD798A /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = C65D627624740C3F00DD798A /* UIScrollView+SVPullToRefresh.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C66F2CD62465873F00F380E4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C66F2CD52465873F00F380E4 /* AppDelegate.m */; };
 		C66F2CD92465873F00F380E4 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C66F2CD82465873F00F380E4 /* SceneDelegate.m */; };
 		C66F2CDC2465873F00F380E4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C66F2CDB2465873F00F380E4 /* ViewController.m */; };
@@ -33,6 +29,12 @@
 		C66F2CE72465874300F380E4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C66F2CE62465874300F380E4 /* main.m */; };
 		C66F2CF12465874300F380E4 /* DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C66F2CF02465874300F380E4 /* DemoTests.m */; };
 		C66F2CFC2465874300F380E4 /* DemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C66F2CFB2465874300F380E4 /* DemoUITests.m */; };
+		C681128124B848D2007C6668 /* XSMJDIYFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = C681127824B848D2007C6668 /* XSMJDIYFooter.m */; };
+		C681128224B848D2007C6668 /* XSMJDIYHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C681127924B848D2007C6668 /* XSMJDIYHeader.m */; };
+		C681128324B848D2007C6668 /* UIScrollView+XSRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = C681127A24B848D2007C6668 /* UIScrollView+XSRefresh.m */; };
+		C681128424B848D2007C6668 /* UIScrollView+XSOldRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = C681127D24B848D2007C6668 /* UIScrollView+XSOldRefresh.m */; };
+		C681128724B84A5A007C6668 /* UIView+FrameExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = C681128624B84A5A007C6668 /* UIView+FrameExtension.m */; };
+		C681128924B84FA8007C6668 /* XSPullRefresh.json in Resources */ = {isa = PBXBuildFile; fileRef = C681128824B84FA8007C6668 /* XSPullRefresh.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,10 +67,6 @@
 		C650D05F246BCF35002A01C9 /* MJDIYHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDIYHeader.h; sourceTree = "<group>"; };
 		C650D060246BCF35002A01C9 /* MJDIYHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDIYHeader.m; sourceTree = "<group>"; };
 		C650D062246BD4F5002A01C9 /* Icon_Refresh_Arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon_Refresh_Arrow@2x.png"; sourceTree = "<group>"; };
-		C650D066246BFDEC002A01C9 /* XSMJDIYHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSMJDIYHeader.m; sourceTree = "<group>"; };
-		C650D067246BFDEC002A01C9 /* UIScrollView+XSRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+XSRefresh.m"; sourceTree = "<group>"; };
-		C650D068246BFDEC002A01C9 /* XSMJDIYHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSMJDIYHeader.h; sourceTree = "<group>"; };
-		C650D069246BFDEC002A01C9 /* UIScrollView+XSRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+XSRefresh.h"; sourceTree = "<group>"; };
 		C650D095246EBA40002A01C9 /* TBCityIconFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBCityIconFont.m; sourceTree = "<group>"; };
 		C650D096246EBA40002A01C9 /* TBCityIconInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBCityIconInfo.m; sourceTree = "<group>"; };
 		C650D097246EBA40002A01C9 /* TBCityIconInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBCityIconInfo.h; sourceTree = "<group>"; };
@@ -78,11 +76,6 @@
 		C650D09E246EBD19002A01C9 /* iconfont.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = iconfont.json; sourceTree = "<group>"; };
 		C650D09F246EBD19002A01C9 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
 		C65AFE4F24814F960015E9B3 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
-		C65D627424740C3F00DD798A /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
-		C65D627524740C3F00DD798A /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
-		C65D627624740C3F00DD798A /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
-		C65D627724740C3F00DD798A /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
-		C65D627824740C3F00DD798A /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
 		C66F2CD12465873F00F380E4 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C66F2CD42465873F00F380E4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C66F2CD52465873F00F380E4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -101,6 +94,17 @@
 		C66F2CF72465874300F380E4 /* DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C66F2CFB2465874300F380E4 /* DemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoUITests.m; sourceTree = "<group>"; };
 		C66F2CFD2465874300F380E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C681127824B848D2007C6668 /* XSMJDIYFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSMJDIYFooter.m; sourceTree = "<group>"; };
+		C681127924B848D2007C6668 /* XSMJDIYHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSMJDIYHeader.m; sourceTree = "<group>"; };
+		C681127A24B848D2007C6668 /* UIScrollView+XSRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+XSRefresh.m"; sourceTree = "<group>"; };
+		C681127C24B848D2007C6668 /* UIScrollView+XSOldRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+XSOldRefresh.h"; sourceTree = "<group>"; };
+		C681127D24B848D2007C6668 /* UIScrollView+XSOldRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+XSOldRefresh.m"; sourceTree = "<group>"; };
+		C681127E24B848D2007C6668 /* XSMJDIYHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSMJDIYHeader.h; sourceTree = "<group>"; };
+		C681127F24B848D2007C6668 /* XSMJDIYFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSMJDIYFooter.h; sourceTree = "<group>"; };
+		C681128024B848D2007C6668 /* UIScrollView+XSRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+XSRefresh.h"; sourceTree = "<group>"; };
+		C681128524B84A59007C6668 /* UIView+FrameExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameExtension.h"; sourceTree = "<group>"; };
+		C681128624B84A5A007C6668 /* UIView+FrameExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameExtension.m"; sourceTree = "<group>"; };
+		C681128824B84FA8007C6668 /* XSPullRefresh.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = XSPullRefresh.json; sourceTree = "<group>"; };
 		C8B46343287E93FD0F818970 /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA1234D6323E93055B217369 /* Pods-DemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoTests.debug.xcconfig"; path = "Target Support Files/Pods-DemoTests/Pods-DemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FFA42915583A2EEF36853161 /* Pods_Demo_DemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo_DemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,17 +161,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		C650D065246BFDEC002A01C9 /* XSRefresh */ = {
-			isa = PBXGroup;
-			children = (
-				C650D068246BFDEC002A01C9 /* XSMJDIYHeader.h */,
-				C650D066246BFDEC002A01C9 /* XSMJDIYHeader.m */,
-				C650D069246BFDEC002A01C9 /* UIScrollView+XSRefresh.h */,
-				C650D067246BFDEC002A01C9 /* UIScrollView+XSRefresh.m */,
-			);
-			path = XSRefresh;
-			sourceTree = "<group>";
-		};
 		C650D094246EBA40002A01C9 /* XSIconFont */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,18 +182,6 @@
 				C65AFE4F24814F960015E9B3 /* Location.gpx */,
 			);
 			path = GPX;
-			sourceTree = "<group>";
-		};
-		C65D627324740C3F00DD798A /* SVPullToRefresh */ = {
-			isa = PBXGroup;
-			children = (
-				C65D627424740C3F00DD798A /* SVPullToRefresh.h */,
-				C65D627524740C3F00DD798A /* UIScrollView+SVInfiniteScrolling.m */,
-				C65D627624740C3F00DD798A /* UIScrollView+SVPullToRefresh.m */,
-				C65D627724740C3F00DD798A /* UIScrollView+SVInfiniteScrolling.h */,
-				C65D627824740C3F00DD798A /* UIScrollView+SVPullToRefresh.h */,
-			);
-			path = SVPullToRefresh;
 			sourceTree = "<group>";
 		};
 		C66F2CC82465873F00F380E4 = {
@@ -228,10 +209,9 @@
 		C66F2CD32465873F00F380E4 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				C681127724B848D2007C6668 /* XSRefresh */,
 				C65AFE4E24814F7F0015E9B3 /* GPX */,
-				C65D627324740C3F00DD798A /* SVPullToRefresh */,
 				C650D094246EBA40002A01C9 /* XSIconFont */,
-				C650D065246BFDEC002A01C9 /* XSRefresh */,
 				C650D062246BD4F5002A01C9 /* Icon_Refresh_Arrow@2x.png */,
 				C650D05F246BCF35002A01C9 /* MJDIYHeader.h */,
 				C650D060246BCF35002A01C9 /* MJDIYHeader.m */,
@@ -269,6 +249,32 @@
 				C66F2CFD2465874300F380E4 /* Info.plist */,
 			);
 			path = DemoUITests;
+			sourceTree = "<group>";
+		};
+		C681127724B848D2007C6668 /* XSRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				C681128824B84FA8007C6668 /* XSPullRefresh.json */,
+				C681128524B84A59007C6668 /* UIView+FrameExtension.h */,
+				C681128624B84A5A007C6668 /* UIView+FrameExtension.m */,
+				C681127B24B848D2007C6668 /* XSOldRefresh */,
+				C681127A24B848D2007C6668 /* UIScrollView+XSRefresh.m */,
+				C681128024B848D2007C6668 /* UIScrollView+XSRefresh.h */,
+				C681127924B848D2007C6668 /* XSMJDIYHeader.m */,
+				C681127E24B848D2007C6668 /* XSMJDIYHeader.h */,
+				C681127F24B848D2007C6668 /* XSMJDIYFooter.h */,
+				C681127824B848D2007C6668 /* XSMJDIYFooter.m */,
+			);
+			path = XSRefresh;
+			sourceTree = "<group>";
+		};
+		C681127B24B848D2007C6668 /* XSOldRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				C681127C24B848D2007C6668 /* UIScrollView+XSOldRefresh.h */,
+				C681127D24B848D2007C6668 /* UIScrollView+XSOldRefresh.m */,
+			);
+			path = XSOldRefresh;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,6 +392,7 @@
 				C650D063246BD4F5002A01C9 /* Icon_Refresh_Arrow@2x.png in Resources */,
 				C650CFF6246AD084002A01C9 /* Icon_Refresh.png in Resources */,
 				C66F2CDF2465873F00F380E4 /* Main.storyboard in Resources */,
+				C681128924B84FA8007C6668 /* XSPullRefresh.json in Resources */,
 				C650D0A0246EBD19002A01C9 /* iconfont.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,18 +521,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C650D06B246BFDEC002A01C9 /* UIScrollView+XSRefresh.m in Sources */,
+				C681128324B848D2007C6668 /* UIScrollView+XSRefresh.m in Sources */,
 				C66F2CDC2465873F00F380E4 /* ViewController.m in Sources */,
+				C681128124B848D2007C6668 /* XSMJDIYFooter.m in Sources */,
 				C650D099246EBA40002A01C9 /* TBCityIconFont.m in Sources */,
 				C66F2CD62465873F00F380E4 /* AppDelegate.m in Sources */,
+				C681128224B848D2007C6668 /* XSMJDIYHeader.m in Sources */,
 				C66F2CE72465874300F380E4 /* main.m in Sources */,
 				C650D09A246EBA40002A01C9 /* TBCityIconInfo.m in Sources */,
 				C66F2CD92465873F00F380E4 /* SceneDelegate.m in Sources */,
 				C650D061246BCF35002A01C9 /* MJDIYHeader.m in Sources */,
-				C65D627A24740C3F00DD798A /* UIScrollView+SVPullToRefresh.m in Sources */,
-				C65D627924740C3F00DD798A /* UIScrollView+SVInfiniteScrolling.m in Sources */,
-				C650D06A246BFDEC002A01C9 /* XSMJDIYHeader.m in Sources */,
+				C681128424B848D2007C6668 /* UIScrollView+XSOldRefresh.m in Sources */,
 				C650CFF1246AB634002A01C9 /* XSRefreshTool.m in Sources */,
+				C681128724B84A5A007C6668 /* UIView+FrameExtension.m in Sources */,
 				C650D09D246EBA8E002A01C9 /* UIImage+TBCityIconFont.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -700,6 +708,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EGTTCNBDA8;
 				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -720,6 +729,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EGTTCNBDA8;
 				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

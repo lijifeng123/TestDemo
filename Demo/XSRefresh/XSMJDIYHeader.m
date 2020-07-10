@@ -7,12 +7,17 @@
 //
 
 #import "XSMJDIYHeader.h"
+#import <Lottie/Lottie.h>
+#import "UIView+FrameExtension.h"
+
+#define MaxImageH 40
+#define MinImageH 28
 
 @interface XSMJDIYHeader()
-@property (weak, nonatomic) UIActivityIndicatorView *activityView;
-@property (weak, nonatomic) UIImageView *customArrow;
 @property (weak, nonatomic) UILabel *label;
 @property (weak, nonatomic) UIImageView *backGroundImageView;
+@property (weak, nonatomic) LOTAnimationView *lottieLogo;
+
 @end
 
 @implementation XSMJDIYHeader
@@ -23,51 +28,41 @@
     [super prepare];
     
     // 设置控件的高度
-    self.mj_h = 80;
-    
-    // 添加刷新中的菊花
-    UIActivityIndicatorView *activityImV = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    [activityImV startAnimating];
-    [self addSubview:activityImV];
-    self.activityView = activityImV;
-    
-    // 添加下拉刷新状态箭头
-    UIImage *arrowImg = [UIImage imageNamed:@"Icon_Refresh_Arrow@2x.png"];
-    UIImageView *customArrow = [[UIImageView alloc] initWithImage:arrowImg];
-    [self addSubview:customArrow];
-    self.customArrow = customArrow;
+    self.mj_h = 100;
     
     // 添加刷新状态label
     UILabel *label = [[UILabel alloc] init];
-    label.textColor = [UIColor lightGrayColor];
-    label.font = [UIFont boldSystemFontOfSize:12];
+    label.textColor = [UIColor blackColor];
+    label.font = [UIFont boldSystemFontOfSize:10];
     label.textAlignment = NSTextAlignmentCenter;
     [self addSubview:label];
     self.label = label;
     
     // 添加刷新背景图片
-    UIImage *backGroundImage = [UIImage imageNamed:@"Icon_Refresh.png"];//
-    UIImageView *backGroundImageView = [[UIImageView alloc] initWithImage:backGroundImage];
-    [self addSubview:backGroundImageView];
-    self.backGroundImageView = backGroundImageView;
+    LOTAnimationView *lottieView = [LOTAnimationView animationNamed:@"XSPullRefresh"];
+    lottieView.loopAnimation = YES;
+    lottieView.animationSpeed = 1.2;
+    lottieView.contentMode = UIViewContentModeScaleAspectFit;
+    [self addSubview:lottieView];
+    self.lottieLogo = lottieView;
+    MJWeakSelf;
+    self.endRefreshingCompletionBlock = ^{
+        weakSelf.label.text = @"下拉刷新";
+        [weakSelf.lottieLogo stop];
+    };
 }
 
 #pragma mark 在这里设置子控件的位置和尺寸
 - (void)placeSubviews
 {
     [super placeSubviews];
-
-    self.backGroundImageView.bounds = CGRectMake(0, 0, 132, 44);
-    self.backGroundImageView.center = CGPointMake(self.mj_w * 0.5, - self.backGroundImageView.mj_h + 70);
     
-    CGFloat bottom = self.backGroundImageView.frame.origin.y + self.backGroundImageView.frame.size.height + 5;
+    if (self.pullingPercent == 0) {
+        self.lottieLogo.frame = CGRectMake(0, self.label.mj_y - 10 - MaxImageH, MaxImageH, MaxImageH);
+        self.lottieLogo.centerX = self.label.centerX;
+    }
     
-    self.customArrow.frame = CGRectMake(self.bounds.size.width/2 - 35, bottom, 20, 20);
-    self.activityView.frame = CGRectMake(self.bounds.size.width/2 - 35, bottom, 20, 20);
-    
-    self.label.frame = CGRectMake(self.customArrow.frame.origin.x + 10 , bottom, 80, 20);
-    
-
+    self.label.frame = CGRectMake((self.mj_w - 80) / 2 , self.mj_h - 20, 80, 10);
 }
 
 #pragma mark 监听scrollView的contentOffset改变
@@ -98,19 +93,21 @@
     switch (state) {
         case MJRefreshStateIdle:
             
-            self.label.text = @"下拉刷新";
-            self.customArrow.hidden = NO;
-            self.activityView.hidden = YES;
+            if (self.label.text.length > 0) {
+                self.label.text = @"刷新中";
+            }else{
+                self.label.text = @"下拉刷新";
+            }
             break;
         case MJRefreshStatePulling:
             
-            self.label.text = @"释放刷新";
-            [self rotateArrow:M_PI hide:NO];
+            self.label.text = @"松开刷新";
+            [self.lottieLogo stop];
             break;
         case MJRefreshStateRefreshing:
             
-            [self rotateArrow:M_PI hide:YES];
-            self.label.text = @"正在刷新";
+            self.label.text = @"刷新中";
+            [self.lottieLogo play];
             break;
         default:
             break;
@@ -122,32 +119,24 @@
 {
     [super setPullingPercent:pullingPercent];
     
-    // 1.0 0.5 0.0
-    // 0.5 0.0 0.5
-//    CGFloat red = 1.0 - pullingPercent * 0.5;
-//    CGFloat green = 0.5 - 0.5 * pullingPercent;
-//    CGFloat blue = 0.5 * pullingPercent;
-//    self.label.textColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
-    
-    
-    
-    NSLog(@"----------%lf",pullingPercent);
-}
-
-- (void)rotateArrow:(float)degrees hide:(BOOL)hide {
-    if (self.customArrow) {
-        if (hide) {
-            [self.customArrow setHidden:YES];
-            [self.activityView setHidden:NO];
-        } else {
-            [self.customArrow setHidden:NO];
-            [self.activityView setHidden:YES];
-        }
-        
-        [UIView animateWithDuration:.2 animations:^{
-            self.customArrow.transform = CGAffineTransformRotate(self.customArrow.transform, -degrees);
-        }];
+    if (self.pullingPercent == 0) {
+        return;
     }
+
+    CGFloat imageHeight = 0;
+    
+    if (self.pullingPercent < 0.6) {
+        imageHeight = MinImageH;
+    }else if (self.pullingPercent < 1) {
+        imageHeight = (MaxImageH - MinImageH) /0.4 * (pullingPercent - 0.6) + MinImageH;
+    }else{
+        imageHeight = MaxImageH;
+    }
+    
+    self.lottieLogo.frame = CGRectMake(0, self.label.mj_y - 10 - imageHeight, imageHeight, imageHeight);
+    self.lottieLogo.centerX = self.label.centerX;
+    
+    NSLog(@"------%lf",pullingPercent);
 }
 
 @end
